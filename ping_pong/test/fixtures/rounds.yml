@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num: MyString
+  tournament: one
+  status: MyString
+
+two:
+  num: MyString
+  tournament: two
+  status: MyString
