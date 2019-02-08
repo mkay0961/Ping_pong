@@ -3,7 +3,7 @@ class PlayersController < ApplicationController
   before_action :find_player, only: [:show, :edit, :update, :destroy]
 
   def index
-    @players = Player.all
+    @players = Player.active_players
   end
 
   def show
@@ -15,6 +15,8 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.create(player_params)
+    @player.active = true
+    @player.save
     redirect_to player_path(@player)
   end
 
@@ -27,7 +29,8 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-    @player.destroy
+    @player.active = false
+    @player.save
     redirect_to players_path
   end
 

@@ -22,6 +22,12 @@ class Player < ApplicationRecord
     end
   end
 
+  def self.active_players
+    self.all.select do |player|
+      player.active
+    end
+  end
+
 
 
 end
