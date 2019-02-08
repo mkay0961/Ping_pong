@@ -23,4 +23,4 @@ h = Player.create(first_name: "alex", last_name: "kay", nickname: "alkay", img_u
 tournament = Tournament.create(name: "t1", status: "something")
 round = Round.create(num: 1, tournament: tournament, status: "pending")
 
-g1 = Game.create(p1: a, p2: andrea, status: "pending", round: round)
+g1 = Game.create(p1: m, p2: andrea, status: "pending", round: round)

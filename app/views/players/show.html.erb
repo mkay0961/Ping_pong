@@ -1,0 +1,12 @@
+<h1><%= @player.nickname %></h1>
+
+<h3>Games: </h3>
+  <% if !@player.games.empty? %>
+  <ul>
+    <% @player.games.each do |game| %>
+    <li> Tournament: <%= game.round.tournament.name %> | Round: <%= game.round.num %> | Status: <%= game.status %> | <%= @player.win?(game) %></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p> <%= @player.name %> hasn't played any games yet!</p>
+  <% end %>
