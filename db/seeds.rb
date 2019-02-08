@@ -13,7 +13,7 @@ Tournament.destroy_all
 anthony = Player.create(first_name: "Anthony", last_name: "Gregg")
 ryan = Player.create(first_name: "Ryan", last_name: "Gill")
 andrea = Player.create(first_name: "Andrea", last_name: "Williams")
-a = Player.create(first_name: "matthew", last_name: "kay", nickname: "mkay", img_url: "www")
+m = Player.create(first_name: "matthew", last_name: "kay", nickname: "mkay", img_url: "www")
 s = Player.create(first_name: "sydney", last_name: "kay", nickname: "skay", img_url: "www")
 d = Player.create(first_name: "aaron", last_name: "kay", nickname: "akay", img_url: "www")
 f = Player.create(first_name: "fred", last_name: "kay", nickname: "fkay", img_url: "www")
