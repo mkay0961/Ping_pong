@@ -19,10 +19,7 @@ class TournamentsController < ApplicationController
       params[:player_ids].each do |player|
         players << Player.find(player.to_i)
       end
-
-
-
-
+      players = players.shuffle
       @tournament = Tournament.create(tournament_params)
       if @tournament.save
         @round = Round.create(num: 1, tournament_id: @tournament.id, status: "pending")
