@@ -22,5 +22,9 @@ h = Player.create(first_name: "alex", last_name: "kay", nickname: "alkay", img_u
 
 tournament = Tournament.create(name: "t1", status: "something")
 round = Round.create(num: 1, tournament: tournament, status: "pending")
+# round2 = Round.create(num: 2, tournament: tournament, status: "pending")
 
-g1 = Game.create(p1: m, p2: andrea, status: "pending", round: round)
+g1 = Game.create(p1: m, p2: andrea, status: "Completed", round: round,winner: m,loser:andrea )
+g2 = Game.create(p1: s, p2: g, status: "Completed", round: round,winner: s,loser:g )
+g1 = Game.create(p1: m, p2: andrea, status: "Completed", round: round,winner: m,loser:andrea )
+g2 = Game.create(p1: s, p2: g, status: "pending", round: round )

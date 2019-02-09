@@ -1,8 +1,47 @@
 <h1>Welcome to the <%=@tournament.name %> tournament</h1>
+<h2>There are <%= @tournament.num_players %> players in this tournament</h2>
+<% @tournament.rounds.each_with_index do |round, i| %>
 
-add more stuff
+ <h3>Round <%= i+1 %></h3>
+ <h4>This round has <%= round.games.count %> games</h4>
+   <% round.games.each_with_index do |game, i| %>
+     <h5><%= link_to "Game "+(i+1).to_s, game %> </h5>
+     <h5>Player 1: <%= game.p1.name %></h5>
+     <h5>Player 2: <%= game.p2.name %></h5>
+
+     <% if game.winner.nil? %>
+       <h5>Winner: Game still in progress</h5>
+     <% else %>
+       <h5>Winner: <%= game.winner.name %></h5>
+     <% end %>
+
+     <% if game.loser.nil? %>
+       <h5>Loser: Game still in progress </h5>
+     <% else %>
+       <h5>Loser: <%= game.loser.name %></h5>
+     <% end %>
+
+
+   <% end %>
+ <% end %>
 
 
 <%= form_tag @tournament, method: "delete" do %>
   <%= submit_tag "Delete" %>
 <% end %>
+
+<h1>Welcome to the <%=@tournament.name %> tournament</h1>
+  <main id="tournament">
+  <% @tournament.rounds.each_with_index do |round, i| %>
+  <ul class="round round-<%= i %>">
+    <% round.games.each_with_index do |game, i| %>
+
+      <li class="spacer">&nbsp;</li>
+      <li class="game game-top winner"><%= game.p1.name %> </li>
+      <li class="game game-spacer">&nbsp;<%= link_to "Game ".to_s, game %> </li>
+      <li class="game game-bottom "><%= game.p2.name %> </li>
+      <li class="spacer">&nbsp;</li>
+      <% end %>
+  </ul>
+<% end %>
+</main>

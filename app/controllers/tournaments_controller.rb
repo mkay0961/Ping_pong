@@ -21,7 +21,7 @@ class TournamentsController < ApplicationController
       end
 
 
-      byebug
+
 
       @tournament = Tournament.create(tournament_params)
       if @tournament.save
@@ -30,7 +30,7 @@ class TournamentsController < ApplicationController
         num_games_round_1.times do |i|
           Game.create(status: "pending", round_id: @round.id, p1_id: players.pop.id , p2_id: players.pop.id)
         end
-        byebug
+        # byebug
         redirect_to @tournament
        else
          render :new
