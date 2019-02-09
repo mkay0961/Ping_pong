@@ -9,6 +9,7 @@ class TournamentsController < ApplicationController
     end
 
     def new
+      
       @tournament = Tournament.new
     end
 
