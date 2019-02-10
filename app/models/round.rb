@@ -7,12 +7,12 @@ class Round < ApplicationRecord
 
 
     # here add if
-    byebug
+    # byebug
     t = self.games.all? {|game| game.status == "Completed"}
     if t && self.games.size == 1
       self.tournament.set_winner(self.games.last.winner.id)
       self.tournament.complete_torn
-      byebug
+      # byebug
     elsif t
 
       self.complete_round

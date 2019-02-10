@@ -19,6 +19,7 @@ class Tournament < ApplicationRecord
 
   def set_winner(id)
     winner = Player.find(id)
+    self.update(winner_id: winner.id)
   end
 
   def complete_torn
