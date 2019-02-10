@@ -6,12 +6,10 @@ class GamesController < ApplicationController
   end
 
   def set_winner
-    
-    if !params[:game][:p1].nil?
 
+    if !params[:game][:p1].nil?
       @game.who_won( params[:game][:p1])
     elsif !params[:game][:p2].nil?
-
       @game.who_won( params[:game][:p2])
     end
 

@@ -4,20 +4,14 @@ class Round < ApplicationRecord
   belongs_to :tournament
 
   def check_done
-
-
-    # here add if
-    # byebug
     t = self.games.all? {|game| game.status == "Completed"}
     if t && self.games.size == 1
       self.tournament.set_winner(self.games.last.winner.id)
       self.tournament.complete_torn
       # byebug
     elsif t
-
       self.complete_round
       self.tournament.new_round(self.num)
-
     end
 
   end

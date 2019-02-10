@@ -6,13 +6,10 @@ class Tournament < ApplicationRecord
 
   def new_round(num)
 
-    if self.status == "pending"
-      winner = self.rounds.last.get_winners
+      winners = self.rounds.last.get_winners
       r = Round.create(num: (num+1), tournament: self, status: "pending")
-      r.add_games_to_next_round(winner)
-    elsif self.status == "Completed"
-      byebug
-    end
+      r.add_games_to_next_round(winners)
+
 
 
   end
