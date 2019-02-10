@@ -20,7 +20,11 @@ f = Player.create(first_name: "fred", last_name: "kay", nickname: "fkay", img_ur
 g = Player.create(first_name: "mick", last_name: "kay", nickname: "mkay", img_url: "www", active: true)
 h = Player.create(first_name: "alex", last_name: "kay", nickname: "alkay", img_url: "www", active: true)
 
-tournament = Tournament.create(name: "t1", status: "something")
+tournament = Tournament.create(name: "t1", status: "pending")
 round = Round.create(num: 1, tournament: tournament, status: "pending")
+# round2 = Round.create(num: 2, tournament: tournament, status: "pending")
 
-g1 = Game.create(p1: m, p2: andrea, status: "pending", round: round)
+g1 = Game.create(p1: m, p2: andrea, status: "Completed", round: round,winner: m,loser:andrea )
+g2 = Game.create(p1: s, p2: g, status: "Completed", round: round,winner: s,loser:g )
+g1 = Game.create(p1: m, p2: andrea, status: "Completed", round: round,winner: m,loser:andrea )
+g2 = Game.create(p1: s, p2: g, status: "pending", round: round )

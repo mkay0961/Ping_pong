@@ -1,0 +1,24 @@
+<h3>Game</h3>
+<h3>Player 1: <%= @game.p1.name %></h3>
+<h3>Player 2: <%= @game.p2.name %></h3>
+<% if @game.winner.nil? %>
+  <h3>Winner: Game still in progress</h3>
+<% else %>
+  <h3>Winner: <%= @game.winner.name %></h3>
+<% end %>
+
+<% if@game.loser.nil? %>
+  <h3>Loser: Game still in progress</h3>
+<% else %>
+  <h3>Loser: <%= @game.loser.name %></h3>
+<% end %>
+<br>
+<h3>If the game is over, who won?</h3>
+
+<%= form_for @game do |f| %>
+  <%= f.label @game.p1.name %><br />
+  <%= f.radio_button :p1,@game.p1_id, :checked => false %><br />
+  <%= f.label @game.p2.name %><br />
+  <%= f.radio_button :p2,@game.p2_id, :checked => false %><br />
+  <%= f.submit %>
+<% end %>

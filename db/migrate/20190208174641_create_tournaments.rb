@@ -4,6 +4,7 @@ class CreateTournaments < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :num_players
       t.string :status
+      t.integer :winner_id
 
       t.timestamps
     end

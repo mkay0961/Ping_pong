@@ -1,7 +1,11 @@
 <h1>All the tournaments!</h1>
+
+<% if @tournaments.empty? %>
+  There are no tournaments, you can Create one at the top left!
+<% else %>
 <ul>
 <% @tournaments.each do |tour| %>
   <li><%=link_to tour.name, tour %></li>
 <%end %>
 </ul>
-<%= link_to "Create", new_tournament_path %>
+<% end %>
