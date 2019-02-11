@@ -22,7 +22,7 @@
   <% Player.active_players.each do |role| %>
       <li>
         <%= check_box_tag 'player_ids[]', role.id -%>
-        <%= h role.first_name -%>
+        <%= h role.name -%>
       </li>
   <% end %>
 </ul>

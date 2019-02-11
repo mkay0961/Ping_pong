@@ -2,7 +2,7 @@
 <% if @player.errors.any? %>
  <div id=“error_explanation”>
    <h2>
-     <%= pluralize(@player.errors.count, “error”) %> prohibits this player from being saved!
+     <%= pluralize(@player.errors.count, "error") %> prohibit this player from being saved!
    </h2>
    <ul>
      <% @player.errors.full_messages.each do |msg| %>
