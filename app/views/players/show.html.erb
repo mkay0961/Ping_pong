@@ -1,18 +1,28 @@
 <h1><%= @player.nickname %></h1>
+<h3><%= @player.name %></h3>
 
-<h3>Games: </h3>
+<div class="box">
+  <h3>Games: </h3>
   <% if !@player.games.empty? %>
-  <div class="box">
-  <ul>
-    <% @player.games.each do |game| %>
-    <li> Tournament: <%= game.round.tournament.name %> | Round: <%= game.round.num %> | Status: <%= game.status %> | <%= @player.win?(game) %></li>
-    <% end %>
-  </ul>
+    <table>
+      <tr>
+        <th>Tournament</th>
+        <th>Round</th>
+        <th>Score</th>
+      </tr>
+      <% @player.games.each do |game| %>
+      <tr>
+        <td> <%= game.round.tournament.name %> </td>
+        <td> <%= game.round.num %> </td>
+        <td> <%= @player.win?(game) %> </td>
+      </tr>
+      <% end %>
+    </table>
   <% else %>
     <p> <%= @player.name %> hasn't played any games yet!</p>
   <% end %>
-  </div>
+</div>
 
-  <%= form_tag @tournament, method: "delete" do %>
-    <%= submit_tag "Delete Player" %>
-  <% end %>
+<%= form_tag @tournament, method: "delete" do %>
+  <%= submit_tag "Delete Player" %>
+<% end %>
