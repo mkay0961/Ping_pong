@@ -32,6 +32,7 @@ class Tournament < ApplicationRecord
   end
 
   def complete_torn
+    self.rounds.last.update(status: "Completed")
     self.update(status: "Completed")
   end
 
@@ -41,6 +42,32 @@ class Tournament < ApplicationRecord
     end
   end
 
+  def get_all_winner
+    winner = {}
+    self.rounds.each_with_index do |round, i|
+      name = "round_"+i.to_s
+      winner[name] = {}
+      round.games.each_with_index do |game, i|
+        gname = "game_"+i.to_s
+        winner[name][gname] = game.winner.name
+      end
+    end
+    return winner
+  end
+
+  def get_all_loser
+    # loser =[]
+    loser = {}
+    self.rounds.each_with_index do |round, i|
+      name = "round_"+i.to_s
+      loser[name] = {}
+      round.games.each_with_index do |game, i|
+        gname = "game_"+i.to_s
+        loser[name][gname] = game.loser.name
+      end
+    end
+    return loser
+  end
 
 
 
