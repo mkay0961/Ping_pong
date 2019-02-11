@@ -30,7 +30,7 @@ class Tournament < ApplicationRecord
   end
 
   def player_number
-    if Tournament.player_numbers != true
+    if Tournament.player_numbers == false
       errors.add(:num_players, ": The number of players selected is inaccurate")
     end
   end

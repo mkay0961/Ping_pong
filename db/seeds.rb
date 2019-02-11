@@ -27,7 +27,9 @@ array = array.shuffle
 cohort = Tournament.create(name: "cohort", num_players: array.size, status: "pending")
 round_1= Round.create(num: 1, tournament_id: cohort.id, status: "pending")
 
-array.size.times do
+games = array.size / 2
+
+games.times do
 
   Game.create(status: "pending", p1: array.shift, p2: array.shift, round_id: round_1.id)
 
