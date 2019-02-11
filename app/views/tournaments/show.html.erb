@@ -94,15 +94,15 @@
           <% else %>
 
             <% if game.p1 == game.winner %>
-              <li class="team-item" id = "winner" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
+              <li class="team-item" id = "winner" ><%= game.p1.name %> (<%= game.p1.nickname %>)</li>
             <% else %>
-              <li class="team-item" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
+              <li class="team-item" ><%= game.p1.name %> (<%= game.p1.nickname %>)</li>
             <% end %>
 
             <% if game.p2 == game.winner %>
-              <li class="team-item" id = "winner" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
+              <li class="team-item" id = "winner" ><%= game.p2.name %> (<%= game.p2.nickname %>)</li>
             <% else %>
-              <li class="team-item" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
+              <li class="team-item" ><%= game.p2.name %> (<%= game.p2.nickname %>)</li>
             <% end %>
 
           <% end %>
@@ -114,7 +114,7 @@
       <%elsif !@tournament.winner_id.nil? %>
 
       <ul class="bracket bracket-<%= i+1 %>">
-        <li class="team-item" id = "winner"><%= @tournament.get_winner.name %>(<%= @tournament.get_winner.nickname %>)</li>
+        <li class="team-item" id = "winner"><%= @tournament.get_winner.name %> (<%= @tournament.get_winner.nickname %>)</li>
       </ul>
 
       <%else  %>
