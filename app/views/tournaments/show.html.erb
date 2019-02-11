@@ -51,21 +51,3 @@
 <%= form_tag @tournament, method: "delete" do %>
   <%= submit_tag "Delete This Tournament" %>
 <% end %>
-<<<<<<< HEAD
-
-<h1>Welcome to the <%=@tournament.name %> tournament</h1>
-  <main id="tournament">
-  <% @tournament.rounds.each_with_index do |round, i| %>
-  <ul class="round round-<%= i %>">
-    <% round.games.each_with_index do |game, i| %>
-      <li class="spacer">&nbsp;</li>
-      <li class="game game-top winner"><%= game.p1.name %> </li>
-      <li class="game game-spacer"><%= link_to "Game ", game %> <%= game.status %></li>
-      <li class="game game-bottom "><%= game.p2.name %> </li>
-      <li class="spacer">&nbsp;</li>
-    <% end %>
-  </ul>
-  <% end %>
-</main>
-=======
->>>>>>> 8707b56927d02746039663985602758a47ae2d0a
