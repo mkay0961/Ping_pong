@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ .menu-nav-bar {
+   display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-top: 0;
+    padding-top: 0;
+ }
+
+ li.menu-item {
+   padding: 0px 10px;
+ }
+
+ a.nav-item {
+  background-color: black;
+  color: white;
+  padding: 0px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+ }
+
+ body {
+  background-image: url("http://www.portoalegre.travel/upload/b/134/1340763_ping-pong-wallpaper.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}

@@ -3,6 +3,7 @@ class Tournament < ApplicationRecord
   has_many :games, through: :rounds
   has_many :players, through: :games
   validates :num_players, presence: true
+  validates :num_players, inclusion: { in: [2, 4, 8, 16, 32, 64, 128], message: "must be 2, 4, 6, 8, 16, 32, 64, or 128."}
   validates :name, presence: true, uniqueness: true
   validate :player_number
 
