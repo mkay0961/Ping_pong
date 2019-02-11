@@ -3,6 +3,10 @@ class Player < ApplicationRecord
   has_many :games_as_p2, class_name: :Game, foreign_key: :p2_id
   has_many :rounds, through: :games
   has_many :tournaments, through: :rounds
+  validates :nickname, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :img_url, uniqueness: true
 
   def name
     self.first_name.capitalize + " " + self.last_name.capitalize

@@ -2,6 +2,12 @@ class Tournament < ApplicationRecord
   has_many :rounds, dependent: :destroy
   has_many :games, through: :rounds
   has_many :players, through: :games
+  validates :num_players, presence: true
+  validates :name, presence: true, uniqueness: true
+  validate :player_number
+
+  cattr_accessor :player_numbers
+
 
 
   def new_round(num)
@@ -21,6 +27,12 @@ class Tournament < ApplicationRecord
 
   def complete_torn
     self.update(status: "Completed")
+  end
+
+  def player_number
+    if Tournament.player_numbers != true
+      errors.add(:num_players, ": The number of players selected is inaccurate")
+    end
   end
 
 

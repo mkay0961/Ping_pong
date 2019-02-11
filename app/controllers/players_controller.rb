@@ -15,9 +15,13 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.create(player_params)
-    @player.active = true
-    @player.save
-    redirect_to player_path(@player)
+    if @player.save
+      @player.active = true
+      @player.save
+      redirect_to player_path(@player)
+    else
+      render :new
+    end
   end
 
   def edit
