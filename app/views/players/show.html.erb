@@ -2,6 +2,7 @@
 
 <h3>Games: </h3>
   <% if !@player.games.empty? %>
+  <div class="box">
   <ul>
     <% @player.games.each do |game| %>
     <li> Tournament: <%= game.round.tournament.name %> | Round: <%= game.round.num %> | Status: <%= game.status %> | <%= @player.win?(game) %></li>
@@ -10,6 +11,7 @@
   <% else %>
     <p> <%= @player.name %> hasn't played any games yet!</p>
   <% end %>
+  </div>
 
   <%= form_tag @tournament, method: "delete" do %>
     <%= submit_tag "Delete Player" %>

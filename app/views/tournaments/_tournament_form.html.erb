@@ -1,5 +1,5 @@
 <% if @tournament.errors.any? %>
-  <div id="error_explanation">
+  <div class="box" id="error_explanation">
     <h2>
       <%= pluralize(@tournament.errors.count, "error") %> prohibited this tournament from being saved!
     </h2>
@@ -11,7 +11,8 @@
   </div>
 <% end %>
 
-<%=form_for @tournament do |tour| %>
+<div class="box">
+  <%=form_for @tournament do |tour| %>
   <%= tour.label :name %>
   <%= tour.text_field :name %>
   <br>
@@ -19,13 +20,14 @@
   <%= tour.number_field :num_players %>
 
   <ul>
-  <% Player.active_players.each do |role| %>
-      <li>
-        <%= check_box_tag 'player_ids[]', role.id -%>
-        <%= h role.name -%>
-      </li>
-  <% end %>
-</ul>
+    <% Player.active_players.each do |role| %>
+    <li>
+      <%= check_box_tag 'player_ids[]', role.id -%>
+      <%= h role.name -%>
+    </li>
+    <% end %>
+  </ul>
   <%= tour.submit %>
 
-<% end %>
+  <% end %>
+</div>

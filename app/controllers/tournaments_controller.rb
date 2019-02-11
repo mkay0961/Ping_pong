@@ -4,6 +4,11 @@ class TournamentsController < ApplicationController
 
   before_action :get_tournaments, only: [:show, :destroy]
 
+    def home
+    end
+
+
+
     def index
       @tournaments = Tournament.all
     end
