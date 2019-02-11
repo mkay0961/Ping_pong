@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_224722) do
+ActiveRecord::Schema.define(version: 2019_02_08_174831) do
 
   create_table "games", force: :cascade do |t|
     t.integer "winner_id"
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2019_02_08_224722) do
     t.string "last_name"
     t.string "nickname"
     t.string "img_url"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active"
   end
 
   create_table "rounds", force: :cascade do |t|

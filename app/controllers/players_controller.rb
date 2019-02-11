@@ -41,7 +41,9 @@ class PlayersController < ApplicationController
   private
 
   def player_params
+    # params.require(:player).permit(:first_name, :last_name, :nickname, :img_url).merge(active: true)
     params.require(:player).permit(:first_name, :last_name, :nickname, :img_url)
+
   end
 
   def find_player
