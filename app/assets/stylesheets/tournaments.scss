@@ -5,89 +5,94 @@
 /*
  *  Flex Layout Specifics
 */
-main{
-  display:flex;
-  flex-direction:row;
+#tournname{
+  background-color: white;
+  color: black;
+  text-align: center;
 }
-.round{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width:200px;
-  list-style:none;
-  padding:0;
-}
-  .round .spacer{ flex-grow:1; }
-  .round .spacer:first-child,
-  .round .spacer:last-child{ flex-grow:.5; }
-
-  .round .game-spacer{
-    flex-grow:1;
-  }
-
-/*
- *  General Styles
-*/
-body{
-  font-family:sans-serif;
-  font-size:small;
-  padding:10px;
-  line-height:1.4em;
-}
-
-li.game{
-  padding-left:20px;
-}
-
-  // li.game.winner{
-  //   font-weight:bold;
-  // }
-  li.game span{
-    float:right;
-    margin-right:5px;
-  }
-
-  li.game-top{
-    background: white;
-    border-bottom:5px solid #aaa;
-  }
-
-  li.game-spacer{
-    border-right:5px solid #aaa;
-    min-height:40px;
-  }
-
-  li.game-bottom{
-    background: white;
-    border-top:5px solid #aaa;
-  }
-  li.game-botttomwinner{
-    font-weight:bold;
-    background: green;
-    border-top:5px solid #aaa;
-  }
-  li.game-topwinner{
-    font-weight:bold;
-    background: green;
-    border-bottom:5px solid #aaa;
-  }
-
-  li.game-winner{
-    background: green;
-    border-top:5px;
-
-  }
-
-  html {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 0;
-  height: 100%;
-}
+// main{
+//   display:flex;
+//   flex-direction:row;
+// }
+// .round{
+//   display:flex;
+//   flex-direction:column;
+//   justify-content:center;
+//   width:200px;
+//   list-style:none;
+//   padding:0;
+// }
+//   .round .spacer{ flex-grow:1; }
+//   .round .spacer:first-child,
+//   .round .spacer:last-child{ flex-grow:.5; }
+//
+//   .round .game-spacer{
+//     flex-grow:1;
+//   }
+//
+// /*
+//  *  General Styles
+// */
+// body{
+//   font-family:sans-serif;
+//   font-size:small;
+//   padding:10px;
+//   line-height:1.4em;
+// }
+//
+// li.game{
+//   padding-left:20px;
+// }
+//
+//   // li.game.winner{
+//   //   font-weight:bold;
+//   // }
+//   li.game span{
+//     float:right;
+//     margin-right:5px;
+//   }
+//
+//   li.game-top{
+//     background: white;
+//     border-bottom:5px solid #aaa;
+//   }
+//
+//   li.game-spacer{
+//     border-right:5px solid #aaa;
+//     min-height:40px;
+//   }
+//
+//   li.game-bottom{
+//     background: white;
+//     border-top:5px solid #aaa;
+//   }
+//   li.game-botttomwinner{
+//     font-weight:bold;
+//     background: green;
+//     border-top:5px solid #aaa;
+//   }
+//   li.game-topwinner{
+//     font-weight:bold;
+//     background: green;
+//     border-bottom:5px solid #aaa;
+//   }
+//
+//   li.game-winner{
+//     background: green;
+//     border-top:5px;
+//
+//   }
+//
+//   html {
+//   height: 100%;
+//   width: 100%;
+// }
+//
+// body {
+//   font-family: sans-serif;
+//   margin: 0;
+//   height: 100%;
+// }
 
 .tournament-container {}
 
@@ -105,7 +110,7 @@ body {
     border-right: 1px dashed #ccc;
     margin: 0;
     padding: 1rem;
-    background-color: cadetblue;
+    background-color: #5F9EA0;
     color: black;
   }
 }
@@ -114,7 +119,7 @@ body {
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  background: #fdfdfd;
+  background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 50px;
 }
 
@@ -132,7 +137,7 @@ body {
 }
 
 .team-item {
-    background-color: bisque;
+    background-color: rgb(255, 228, 196);
     padding: .5rem;
     display: block;
     margin: .5rem 10px;
@@ -251,7 +256,7 @@ body {
 
 
 .team-item#winner{
-  background-color: green;
+  background-color: rgb(79, 122, 56);
   padding: .5rem;
   display: block;
   margin: .5rem 10px;
@@ -264,6 +269,7 @@ body {
 
 .team-item#loser{
   background-color: red;
+  background-color: rgba(255, 0, 0, 0.5);
   padding: .5rem;
   display: block;
   margin: .5rem 10px;

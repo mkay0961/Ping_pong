@@ -1,4 +1,6 @@
-<h1>Welcome to the <%=@tournament.name %> tournament</h1>
+<h1 id= "tournname">Welcome to the <%=@tournament.name %> tournament</h1>
+
+<!--
   <main id="tournament">
   <% @tournament.rounds.each_with_index do |round, i| %>
   <ul class="round round-<%= i %>">
@@ -44,19 +46,22 @@
 <% end %>
 </main>
 
-
+-->
 
 
 
 
 <div class="tournament-container">
+  <% array = [2,4,8,16,32,64,128] %>
+  <% rounds = array.index(@tournament.num_players)+2 %>
+
 
   <div class="tournament-headers">
   <% size = @tournament.rounds.size  %>
-  <% (size+1).times do |i|%>
-    <% if i < size %>
+  <% (rounds).times do |i|%>
+    <% if i+1 < rounds %>
       <h3>Round <%= i+1 %> </h3>
-    <% elsif i == size && @tournament.status != "pending" %>
+    <% elsif i+1 == rounds %>
       <h3>WINNER</h3>
     <% end %>
 
@@ -65,41 +70,94 @@
 
 
 
-  <div class="tournament-brackets">
+
+
+ <div class="tournament-brackets">
+    <% (rounds).times do |i|%>
+      <%if !@tournament.rounds[i].nil? %>
+
+
+
+
+      <ul class="bracket bracket-<%= i+1 %>">
+        <% @tournament.rounds[i].games.each_with_index do |game, i| %>
+
+          <% if game.winner.nil? %>
+            <li class="team-item"><%= link_to game.p1.name, game_path(game, game.p1), :method=> :patch %> </li>
+            <li class="team-item"><%= link_to game.p2.name, game_path(game, game.p2), :method=> :patch %> </li>
+          <% else %>
+
+            <% if game.p1 == game.winner %>
+              <li class="team-item" id = "winner" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
+            <% else %>
+              <li class="team-item" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
+            <% end %>
+
+            <% if game.p2 == game.winner %>
+              <li class="team-item" id = "winner" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
+            <% else %>
+              <li class="team-item" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
+            <% end %>
+
+          <% end %>
+
+        <%end  %>
+      </ul>
+
+
+      <%elsif !@tournament.winner_id.nil? %>
+
+      <ul class="bracket bracket-<%= i+1 %>">
+        <li class="team-item" id = "winner"><%= @tournament.get_winner.name %>(<%= @tournament.get_winner.nickname %>)</li>
+      </ul>
+
+      <%else  %>
+      <ul class="bracket bracket-<%= i+1 %>">
+      <% num = (@tournament.num_players)/(2*(i+1)) %>
+        <% if i+1 < rounds %>
+          <% num.times do %>
+            <li class="team-item"></li>
+            <li class="team-item"></li>
+          <% end %>
+        <% else  %>
+          <li class="team-item"></li>
+        <% end %>
+      </ul>
+
+    <% end %>
+
+    <% end %>
+  </div>
+
+  <%= form_tag @tournament, method: "delete" do %>
+    <%= submit_tag "Delete This Tournament" %>
+  <% end %>
+
+
+<!--
+    <div class="tournament-brackets">
     <% @tournament.rounds.each_with_index do |round, i| %>
-
-
-
     <ul class="bracket bracket-<%= i+1 %>">
       <% round.games.each_with_index do |game, i| %>
-      
-      <% if game.winner.nil? %>
-        <li class="team-item"><%= link_to game.p1.name, game_path(game, game.p1), :method=> :patch %> </li>
-        <li class="team-item"><%= link_to game.p2.name, game_path(game, game.p2), :method=> :patch %> </li>
-      <% else %>
 
-      <% if game.p1 == game.winner %>
-        <li class="team-item" id = "winner" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
-      <% else %>
-        <li class="team-item" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
-      <% end %>
+        <% if game.winner.nil? %>
+          <li class="team-item"><%= link_to game.p1.name, game_path(game, game.p1), :method=> :patch %> </li>
+          <li class="team-item"><%= link_to game.p2.name, game_path(game, game.p2), :method=> :patch %> </li>
+        <% else %>
 
-      <% if game.p2 == game.winner %>
-        <li class="team-item" id = "winner" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
-      <% else %>
-        <li class="team-item" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
-      <% end %>
+          <% if game.p1 == game.winner %>
+            <li class="team-item" id = "winner" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
+          <% else %>
+            <li class="team-item" ><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
+          <% end %>
 
+          <% if game.p2 == game.winner %>
+            <li class="team-item" id = "winner" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
+          <% else %>
+            <li class="team-item" ><%= game.p2.name %>(<%= game.p2.nickname %>)</li>
+          <% end %>
 
-
-
-
-      <% end %>
-
-
-        <!-- <li class="team-item"><%= game.p1.name %>(<%= game.p1.nickname %>)</li>
-        <li class="team-item"><%= game.p2.name %>(<%= game.p2.nickname %>)</li> -->
-
+        <% end %>
       <%end  %>
     </ul>
   <% end %>
@@ -110,8 +168,4 @@
   <%end  %>
   </div>
 </div>
-
-
-<%= form_tag @tournament, method: "delete" do %>
-  <%= submit_tag "Delete This Tournament" %>
-<% end %>
+-->
