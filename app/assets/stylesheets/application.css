@@ -20,23 +20,47 @@
     list-style-type: none;
     margin-top: 0;
     padding-top: 0;
+    align: center;
  }
 
  li.menu-item {
    padding: 0px 10px;
+   font-size: 11px;
  }
 
  a.nav-item {
-  background-color: black;
-  color: white;
-  padding: 0px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+   background-color: black;
+   color: white;
+   padding: 0px 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
  }
 
  body {
-  background-image: url("http://www.portoalegre.travel/upload/b/134/1340763_ping-pong-wallpaper.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-}
+   background-image: url("http://www.portoalegre.travel/upload/b/134/1340763_ping-pong-wallpaper.jpg");
+   background-attachment: fixed;
+   background-size: cover;
+   font-family: monaco, Consolas, "Lucida Console", monospace;
+ }
+
+ .box {
+   margin: 20px;
+   padding: 30px;
+   background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  input {
+    border-radius: 5px;
+  }
+
+  table {
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+  }

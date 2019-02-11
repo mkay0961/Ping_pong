@@ -22,7 +22,7 @@ class Player < ApplicationRecord
     elsif game.loser == self
       "lost"
     else
-      "pending"
+      "playing"
     end
   end
 
