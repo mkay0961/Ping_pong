@@ -18,13 +18,14 @@
    display: flex;
     flex-direction: row;
     list-style-type: none;
+    background-color: black;
     margin-top: 0;
     align: center;
  }
 
  li.menu-item {
    padding: 0px 10px;
- font-size: 2em;
+ font-size: 1em;
  }
 
  a.nav-item {
