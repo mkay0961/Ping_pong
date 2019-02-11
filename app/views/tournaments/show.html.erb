@@ -1,3 +1,5 @@
+
+<div id="hh">
 <h1 id= "tournname">Welcome to the <%=@tournament.name %> tournament</h1>
 
 <!--
@@ -51,6 +53,7 @@
 
 
 
+
 <div class="tournament-container">
   <% array = [2,4,8,16,32,64,128] %>
   <% rounds = array.index(@tournament.num_players)+2 %>
@@ -83,8 +86,11 @@
         <% @tournament.rounds[i].games.each_with_index do |game, i| %>
 
           <% if game.winner.nil? %>
+
+
             <li class="team-item"><%= link_to game.p1.name, game_path(game, game.p1), :method=> :patch %> </li>
             <li class="team-item"><%= link_to game.p2.name, game_path(game, game.p2), :method=> :patch %> </li>
+
           <% else %>
 
             <% if game.p1 == game.winner %>
@@ -116,11 +122,11 @@
       <% num = (@tournament.num_players)/(2*(i+1)) %>
         <% if i+1 < rounds %>
           <% num.times do %>
-            <li class="team-item"></li>
-            <li class="team-item"></li>
+            <!-- <li class="team-item"></li>
+            <li class="team-item"></li> -->
           <% end %>
         <% else  %>
-          <li class="team-item"></li>
+          <!-- <li class="team-item"></li> -->
         <% end %>
       </ul>
 
@@ -128,6 +134,8 @@
 
     <% end %>
   </div>
+
+
 
   <%= form_tag @tournament, method: "delete" do %>
     <%= submit_tag "Delete This Tournament" %>
@@ -169,3 +177,4 @@
   </div>
 </div>
 -->
+</div>
