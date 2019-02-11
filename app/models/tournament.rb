@@ -20,6 +20,11 @@ class Tournament < ApplicationRecord
 
 
   end
+  def get_winner
+    winner = self.winner_id
+    winner = Player.find(winner)
+    return winner
+  end
 
   def set_winner(id)
     winner = Player.find(id)

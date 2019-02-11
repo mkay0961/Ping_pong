@@ -6,11 +6,10 @@ class GamesController < ApplicationController
   end
 
   def set_winner
-
-    if !params[:game][:p1].nil?
-      @game.who_won( params[:game][:p1])
-    elsif !params[:game][:p2].nil?
-      @game.who_won( params[:game][:p2])
+    if @game.p1.id == params[:format].to_i
+      @game.who_won( params[:format])
+    elsif @game.p2.id == params[:format].to_i
+      @game.who_won( params[:format])
     end
 
     redirect_to @game.round.tournament
