@@ -47,7 +47,9 @@ li.game{
     margin-right:5px;
   }
 
-  li.game-top{ border-bottom:1px solid #aaa; }
+  li.game-top{
+    border-bottom:1px solid #aaa;
+  }
 
   li.game-spacer{
     border-right:1px solid #aaa;
@@ -56,4 +58,17 @@ li.game{
 
   li.game-bottom{
     border-top:1px solid #aaa;
+  }
+  li.game-botttomwinner{
+    font-weight:bold;
+    border-top:1px solid #aaa;
+  }
+  li.game-topwinner{
+    font-weight:bold;
+    border-bottom:1px solid #aaa;
+  }
+
+  li.game-winner{
+    border-top:1px;
+
   }

@@ -3,49 +3,53 @@
   <% @tournament.rounds.each_with_index do |round, i| %>
   <ul class="round round-<%= i %>">
     <% round.games.each_with_index do |game, i| %>
-
       <li class="spacer">&nbsp;</li>
-      <li class="game game-top"><%= game.p1.name %> </li>
-      <li class="game game-spacer"><%= link_to "Game ".to_s, game %>
+
+        <% if game.winner.nil? %>
+          <li class="game game-top"><%= link_to game.p1.name, game_path(game, game.p1), :method=> :patch %> </li>
+        <% else %>
+          <% if game.p1 == game.winner %>
+          <li class="game game-topwinner"><%= game.p1.name %></li>
+          <%else %>
+          <li class="game game-top"><%= game.p1.name %></li>
+          <% end  %>
+        <% end %>
+      <li class="game game-spacer">
         <% if game.status == "pending" %>
-              Pending
+            Winner: Pending
         <% elsif game.status == "Completed" %>
-          Completed
+          Winner: <%= game.winner.name  %>
         <% end %>
       </li>
-      <li class="game game-bottom "><%= game.p2.name %> </li>
+
+      <% if game.winner.nil? %>
+        <li class="game game-bottom "><%= link_to game.p2.name, game_path(game, game.p2), :method=> :patch %> </li>
+      <% else %>
+        <% if game.p2 == game.winner %>
+          <li class="game game-botttomwinner"><%= game.p2.name %></li>
+        <%else %>
+          <li class="game game-bottom"><%= game.p2.name %></li>
+        <% end  %>
+      <% end %>
       <li class="spacer">&nbsp;</li>
       <% end %>
+
   </ul>
+
+<% end %>
+<% if @tournament.status == "Completed"  %>
+<ul class="round round-<%= @tournament.rounds.size + 1 %>">
+
+  <li class="game game-winner">THE WINNER: <%= @tournament.get_winner.name %></li>
+
+</ul>
 <% end %>
 </main>
 
 
-<% @tournament.rounds.each_with_index do |round, i| %>
-<br>
-<br>
- <h3>Round <%= i+1 %></h3>
- <h4>This round has <%= round.games.count %> games</h4>
-   <% round.games.each_with_index do |game, i| %>
-     <h5><%= link_to "Game "+(i+1).to_s, game %> </h5>
-     <h5>Player 1: <%= game.p1.name %></h5>
-     <h5>Player 2: <%= game.p2.name %></h5>
-
-     <% if game.winner.nil? %>
-       <h5>Winner: Game still in progress</h5>
-     <% else %>
-       <h5>Winner: <%= game.winner.name %></h5>
-     <% end %>
-
-     <% if game.loser.nil? %>
-       <h5>Loser: Game still in progress </h5>
-     <% else %>
-       <h5>Loser: <%= game.loser.name %></h5>
-     <% end %>
 
 
-   <% end %>
- <% end %>
+
 
 
 <%= form_tag @tournament, method: "delete" do %>
