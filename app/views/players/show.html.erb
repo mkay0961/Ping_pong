@@ -21,6 +21,12 @@
   <% else %>
     <p> <%= @player.name %> hasn't played any games yet!</p>
   <% end %>
+
+  <h3>Stats: </h3>
+  <h4>Game win percentage: <%= @player.game_win_percentage %>% </h4>
+  <h4>Tournament win percentage: <%= @player.tour_win_percentage %>% </h4>
+
+
 </div>
 
 <%= form_tag @tournament, method: "delete" do %>
