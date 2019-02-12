@@ -51,10 +51,9 @@ class Player < ApplicationRecord
       tourn << game.round.tournament
 
     end
-
-    tour_played = tourn.unique.count
+    tour_played = tourn.uniq.count
     tour_won = 0
-    self.tournaments.each do |tour|
+    tourn.uniq.each do |tour|
       if tour.winner_id == self.id
         tour_won+=1
       end
