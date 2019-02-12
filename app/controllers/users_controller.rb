@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
     if @user.valid?
         @user.save
-        redirect_to home_path
+        session['user_id'] = @user.id
+        redirect_to tournaments_path
     else
         render :new
     end

@@ -46,7 +46,13 @@ class Player < ApplicationRecord
   end
 
   def tour_win_percentage
-    tour_played = self.tournaments.count
+    tourn = []
+    self.games.each do |game|
+      tourn << game.round.tournament
+
+    end
+
+    tour_played = tourn.unique.count
     tour_won = 0
     self.tournaments.each do |tour|
       if tour.winner_id == self.id
