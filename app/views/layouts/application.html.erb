@@ -17,7 +17,13 @@
         <li class="menu-item"><%= link_to "  Create a Player  ", new_player_path, class: "nav-item" %></li>
         <li class="menu-item"><%= link_to "  View Tournaments  ", tournaments_path, class: "nav-item" %></li>
         <li class="menu-item"><%= link_to "  View Players  ", players_path, class: "nav-item" %></li>
-
+        <li class="menu-item">
+          <% if session[:user_id] %>
+            <%= link_to "Log out #{current_user.username}", logout_path, method: "DELETE", class: "nav-item" %>
+          <% else %>
+            <%= link_to "Log in", login_path, class: "nav-item" %>
+          <% end %>
+        </li>
       </ul>
     </nav>
 
