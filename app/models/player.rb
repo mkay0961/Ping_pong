@@ -6,7 +6,7 @@ class Player < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :img_url, uniqueness: true
+  validates :img_url, uniqueness: true, unless: Proc.new {|a| a.img_url.blank? }
 
   def name
     self.first_name.capitalize + " " + self.last_name.capitalize
