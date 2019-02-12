@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :get_game, only: [:show, :set_winner]
+  before_action :authorized
 
   def show
 

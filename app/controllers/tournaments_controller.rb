@@ -3,6 +3,7 @@ class TournamentsController < ApplicationController
   # before_action :get_tournaments, only: [:show, :edit, :update, :destroy]
 
    before_action :get_tournaments, only: [:show, :destroy]
+   before_action :authorized
 
     # def home
     # end
