@@ -3,6 +3,8 @@ Game.destroy_all
 Round.destroy_all
 Tournament.destroy_all
 
+User.create(username: "mkay", password: "hello")
+
 array = []
 
 array << Player.create(first_name: "Matthew", last_name: "Kay", nickname: "The Creator", img_url: "matthew.jpg")

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_142558) do
     t.string "nickname"
     t.string "img_url"
     t.boolean "active", default: true
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

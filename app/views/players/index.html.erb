@@ -1,5 +1,10 @@
 <h1>All Players</h1>
 <div class="box">
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for a player:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 <ul>
   <% @players.each do |player| %>
     <li><%= link_to player.name, player_path(player) %></li>

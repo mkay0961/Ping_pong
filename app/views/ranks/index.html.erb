@@ -1,0 +1,23 @@
+
+<h1>Weclome to the ranks!</h1>
+<div class="box"><p>
+
+<ol>
+
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Person</th>
+      <th>Points</th>
+    </tr>
+    <% @ranks.each_with_index do |rank, i| %>
+    <tr>
+      <td> <%= i +1  %> </td>
+      <td> <%= rank.name %> </td>
+      <td> <%= rank.points %> </td>
+    </tr>
+    <% end %>
+  </table>
+
+</ol>
+</div>

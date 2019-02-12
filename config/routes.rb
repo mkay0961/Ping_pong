@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users, only: [:new, :create]
+  resources :ranks, only: [:index]
   root 'welcome#root'
   get "/home", to: "welcome#home"
+  get "/search", to: "players#search"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

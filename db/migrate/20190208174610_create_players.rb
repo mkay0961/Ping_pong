@@ -6,6 +6,7 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.string :nickname
       t.string :img_url
       t.boolean :active, default: true
+      t.integer :points, default: 0
 
       t.timestamps
     end

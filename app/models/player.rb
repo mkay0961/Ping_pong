@@ -32,6 +32,16 @@ class Player < ApplicationRecord
     end
   end
 
+  def add_point
+    self.update(points: (self.points + 1))
+  end
+
+  def self.ranks
+    ranks = []
+    ranks = Player.all.sort_by {|player| player.points}
+    return ranks.reverse
+    end
+
   def game_win_percentage
     games_played = self.games.count
     games_won = 0

@@ -32,6 +32,25 @@ class PlayersController < ApplicationController
     redirect_to player_path(@player)
   end
 
+  def search
+    search = params[:q]
+
+
+    @players = []
+    Player.all.each do |player|
+      
+      if player.first_name.downcase == search.downcase || player.last_name.downcase == search.downcase || player.nickname.downcase == search.downcase
+        @players<< player
+      end
+    end
+
+    if @players.empty?
+
+      @players = Player.active_players
+    end
+  render :index
+  end
+
   def destroy
     @player.active = false
     @player.save
