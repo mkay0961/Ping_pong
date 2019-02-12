@@ -12,7 +12,7 @@
       </tr>
       <% @player.games.each do |game| %>
       <tr>
-        <td> <%= game.round.tournament.name %> </td>
+        <td> <%= link_to game.round.tournament.name, game.round.tournament %> </td>
         <td> <%= game.round.num %> </td>
         <td> <%= @player.win?(game) %> </td>
       </tr>

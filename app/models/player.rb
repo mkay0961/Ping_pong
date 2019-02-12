@@ -32,6 +32,31 @@ class Player < ApplicationRecord
     end
   end
 
+  def game_win_percentage
+    games_played = self.games.count
+    games_won = 0
+    self.games.each do |game|
+      if game.winner == self
+        games_won+=1
+      end
+    end
+
+    percent = ( games_won.to_f/games_played)*100
+    return percent
+  end
+
+  def tour_win_percentage
+    tour_played = self.tournaments.count
+    tour_won = 0
+    self.tournaments.each do |tour|
+      if tour.winner_id == self.id
+        tour_won+=1
+      end
+    end
+
+    percent = ( tour_won.to_f/tour_played)*100
+    return percent
+  end
 
 
 end

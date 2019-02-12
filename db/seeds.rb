@@ -34,3 +34,33 @@ games.times do
   Game.create(status: "pending", p1: array.shift, p2: array.shift, round_id: round_1.id)
 
 end
+
+4.times do |i|
+
+  array1 = []
+
+  16.times do
+
+    array1 << Player.create(
+      first_name: Faker::Name.unique.first_name,
+      last_name: Faker::Name.unique.last_name,
+      nickname: Faker::Name.unique.middle_name,
+      img_url: Faker::Company.unique.buzzword)
+    end
+
+
+
+  array1 = array1.shuffle
+
+  cohort1 = Tournament.create(name: "cohort" +i.to_s, num_players: array1.size, status: "pending")
+  round_11= Round.create(num: 1, tournament_id: cohort1.id, status: "pending")
+
+  games1 = array1.size / 2
+
+  games1.times do
+
+    Game.create(status: "pending", p1: array1.shift, p2: array1.shift, round_id: round_11.id)
+
+  end
+
+end
