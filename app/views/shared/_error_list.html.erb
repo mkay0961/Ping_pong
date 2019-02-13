@@ -1,5 +1,12 @@
-<ul class="error_list">
-    <% new_object.errors.full_messages.each do |error| %>
-        <li class="error"><%= error %></li>
-    <% end %>
-</ul>
+<% if new_object.errors.any? %>
+  <div class="box" id="error_explanation">
+    <h2>
+      <%= pluralize(new_object.errors.count, "error") %> prohibited this user from being saved!
+    </h2>
+    <ul>
+      <% new_object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

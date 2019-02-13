@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ a, a:hover, a:visited {
+   color: black;
+   text-decoration: underline;
+ }
 
  .menu-nav-bar {
    display: flex;
@@ -60,16 +64,6 @@
     color: white;
   }
 
-  table {
-    border: 1px solid black;
-    border-radius: 5px;
-  }
-
-  th, td {
-    border: 1px solid black;
-    text-align: center;
-    padding: 5px;
-  }
 
   div.box ul {
     list-style-type: none;
@@ -101,7 +95,26 @@
 .check.label {
   box-shadow: 0px 0px 0px 2px #FFFFFF inset;
   background-color: black;
+  border-radius: 5px;
   color: #FFFFFF;
   text-shadow: none;
   padding: 10px;
+}
+
+.circular.ui.inverted.button.deletion {
+  margin: 0px 20px 30px;
+}
+
+.ui.celled.table {
+  width: 500px;
+}
+
+div.box div.tables {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ui.celled.table th {
+  text-align: center;
 }

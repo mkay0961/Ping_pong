@@ -2,34 +2,63 @@
 <h3><%= @player.name %></h3>
 
 <div class="box">
-  <h3>Games: </h3>
-  <% if !@player.games.empty? %>
-    <table>
-      <tr>
-        <th>Tournament</th>
-        <th>Round</th>
-        <th>Score</th>
-      </tr>
-      <% @player.games.each do |game| %>
-      <tr>
-        <td> <%= link_to game.round.tournament.name, game.round.tournament %> </td>
-        <td> <%= game.round.num %> </td>
-        <td> <%= @player.win?(game) %> </td>
-      </tr>
-      <% end %>
+    <% if !@player.games.empty? %>
+    <div class="tables">
+    <table class="ui celled structured table">
+      <thead>
+        <tr>
+          <th colspan="3">Games</th>
+        </tr>
+        <tr>
+          <th>Tournament</th>
+          <th>Round</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @player.games.each do |game| %>
+        <tr>
+          <td> <%= link_to game.round.tournament.name, game.round.tournament %> </td>
+          <td> <%= game.round.num %> </td>
+          <% if @player.win?(game) == "won" %>
+          <td class="positive"><i class="icon checkmark"></i> <%= @player.win?(game) %> </td>
+          <% elsif @player.win?(game) == "lost" %>
+          <td class="negative"> <%= @player.win?(game) %> </td>
+          <% else %>
+          <td> Playing </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
+
+    <table class="ui celled structured table">
+      <thead>
+        <tr>
+          <th colspan="3">Stats</th>
+        </tr>
+        <tr>
+          <th>Game Win Percentage</th>
+          <th>Tournament Win Percentage</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td><%= @player.game_win_percentage.round(2) %>%</td>
+        <td><%= @player.tour_win_percentage.round(2) %>%</td>
+        <td><%= @player.points %></td>
+      </tbody>
+
+    </table>
+  </div>
   <% else %>
-    <p> <%= @player.name %> hasn't played any games yet!</p>
+  <p> <%= @player.name %> hasn't played any games yet!</p>
   <% end %>
 
-  <h3>Stats: </h3>
-  <h4>Game win percentage: <%= @player.game_win_percentage %>% </h4>
-  <h4>Tournament win percentage: <%= @player.tour_win_percentage %>% </h4>
-  <h4>Points: <%= @player.points %></h4>
 
 
 </div>
 
 <%= form_tag @tournament, method: "delete" do %>
-  <%= submit_tag "Delete Player" %>
+  <%= submit_tag "Delete Player", class: "circular ui inverted button deletion" %>
 <% end %>
