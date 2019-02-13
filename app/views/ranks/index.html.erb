@@ -4,7 +4,7 @@
 
 <ol>
 
-  <table>
+  <table class="ui celled table">
     <tr>
       <th>Rank</th>
       <th>Person</th>
@@ -13,9 +13,9 @@
     <% @ranks.each_with_index do |rank, i| %>
     <tr>
       <td> <%= i +1  %> </td>
-      <td> <%= rank.name %> </td>
+      <td> <%= link_to rank.name, rank %> </td>
       <td> <%= rank.points %> </td>
-    
+
     </tr>
 
     <% end %>

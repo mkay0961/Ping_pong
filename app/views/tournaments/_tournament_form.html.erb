@@ -27,14 +27,14 @@
   <ul>
     <% Player.active_players.each do |role| %>
     <li class="large-selection">
-        <%= check_box_tag 'player_ids[]', role.id, false,  class: "ui inverted button" %>
+        <%= check_box_tag 'player_ids[]', role.id, false,  class: "ui checkbox" %>
         <div class="check label">
         <%= role.name%>
         </div>
     </li>
     <% end %>
   </ul>
-  <%= tour.submit "Create Tournament", class: "ui inverted button" %>
+  <%= tour.submit "Create Tournament", class: "circular ui inverted button" %>
 
   <% end %>
 </div>
