@@ -13,21 +13,23 @@ class TournamentsController < ApplicationController
     end
 
     def new
-
       @tournament = Tournament.new
+      @num_players1 = [2,4,8,16,32,64,128]
     end
 
     def create
+      @num_players1 = [2,4,8,16,32,64,128]
       check_players
       params[:tournament][:status] = "pending"
       players = []
+
       if Tournament.player_numbers == true
         params[:player_ids].each do |player|
           players << Player.find(player.to_i)
         end
         players = players.shuffle
       end
-      @tournament = Tournament.create(tournament_params)
+      @tournament = Tournament.new(tournament_params)
       if @tournament.save
         @round = Round.create(num: 1, tournament_id: @tournament.id, status: "pending")
         num_games_round_1 = @tournament.num_players/2

@@ -19,11 +19,11 @@
       <%= tour.text_field :name %>
     </div>
     <div class="field">
-      <%= tour.label "Number of players" %>
-      <%= tour.number_field :num_players %>
+      <%= tour.label :num_players %>
+      <%= tour.collection_select(:num_players, @num_players1, :to_i, :to_i)  %>
     </div>
-  </div>
 
+  </div>
   <ul>
     <% Player.active_players.each do |role| %>
     <li class="large-selection">

@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_142558) do
 
   create_table "tournaments", force: :cascade do |t|
     t.string "name"
-    t.integer "num_players"
+    t.integer "num_players", default: 0
     t.string "status"
     t.integer "winner_id"
     t.datetime "created_at", null: false
