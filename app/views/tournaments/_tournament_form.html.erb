@@ -27,8 +27,10 @@
   <ul>
     <% Player.active_players.each do |role| %>
     <li class="large-selection">
-        <%= check_box_tag 'player_ids[]', role.id, false,  class: "ui checkbox" %>
-        <%= h role.name %>
+        <%= check_box_tag 'player_ids[]', role.id, false,  class: "ui inverted button" %>
+        <div class="check label">
+        <%= role.name%>
+        </div>
     </li>
     <% end %>
   </ul>

@@ -81,13 +81,13 @@
 
   div.box ul li.large-selection {
     display: inline-block;
-    margin: 40px;
-    width: 70px;
-    height: 70px;
+    margin: 20px;
+    width: 120px;
+    height: 100px;
   }
 
 .ui.checkbox {
-   /* -webkit-appearance:none; */
+   -webkit-appearance:none;
    width: 20px;
    height: 20px;
    background:white;
@@ -97,8 +97,10 @@
 .ui.checkbox:checked {
    background: black;
 }
-
-#error_explanation {
-  display: flex;
-  flex-direction: column;
+.check.label {
+  box-shadow: 0px 0px 0px 2px #FFFFFF inset;
+  background-color: black;
+  color: #FFFFFF;
+  text-shadow: none;
+  padding: 10px;
 }
