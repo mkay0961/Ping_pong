@@ -15,11 +15,11 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.create(player_params)
+    @player = Player.new(player_params)
     if @player.save
       @player.active = true
       @player.save
-      if @player.img_url.nil? || @player.img_url.empty?
+      if @player.img_url.empty? || asset_exists?(@player.img_url) == false
         @player.img_url = "player.png"
         @player.save
       end
@@ -72,6 +72,15 @@ class PlayersController < ApplicationController
 
   def find_player
     @player = Player.find(params[:id])
+  end
+
+  def asset_exists?(path)
+    begin
+      pathname = Rails.application.assets.resolve(path)
+      return !!pathname # double-bang turns String into boolean
+    rescue Sprockets::FileNotFound
+      return false
+    end
   end
 
 end

@@ -20,7 +20,7 @@
     </div>
     <div class="field">
       <%= tour.label :num_players %>
-      <%= tour.collection_select(:num_players, @num_players1, :to_i, :to_i)  %>
+        <%= tour.collection_select(:num_players, @num_players1, :to_i, :to_i, {}, {:class => "ui fluid dropdown"})  %>
     </div>
 
   </div>
