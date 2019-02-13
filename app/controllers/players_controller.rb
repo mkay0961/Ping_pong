@@ -44,7 +44,7 @@ class PlayersController < ApplicationController
     @players = []
     Player.all.each do |player|
 
-      if player.first_name.downcase == search.downcase || player.last_name.downcase == search.downcase || player.nickname.downcase == search.downcase
+      if (player.first_name.downcase == search.downcase || player.last_name.downcase == search.downcase || player.nickname.downcase == search.downcase) && player.active == true
         @players<< player
       end
     end
