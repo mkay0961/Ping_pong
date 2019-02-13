@@ -19,6 +19,10 @@ class PlayersController < ApplicationController
     if @player.save
       @player.active = true
       @player.save
+      if @player.img_url.nil? || @player.img_url.empty?
+        @player.img_url = "player.png"
+        @player.save
+      end
       redirect_to player_path(@player)
     else
       render :new

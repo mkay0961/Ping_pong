@@ -12,18 +12,27 @@
  </div>
 <% end %>
 
-<div class="box"><p>
+<div class="box">
 
-  <%= form_for @player do |f| %>
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name %><br />
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name %><br />
-  <%= f.label :nickname %><br />
-  <%= f.text_field :nickname %><br />
-  <%= f.label :img_url %><br />
-  <%= f.text_field :img_url %><br />
-  <%= f.submit %>
+  <%= form_for @player, :html => {:class => "ui form"} do |f| %>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div><div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname %>
+    </div><div class="field">
+      <%= f.label :img_url %>
+      <%= f.text_field :img_url %>
+    </div>
+  </div>
+      <%= f.submit "Create Player", class: "ui inverted button"  %>
   <% end %>
-  </p>
 </div>

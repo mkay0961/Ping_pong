@@ -9,7 +9,7 @@ array = []
 
 array << Player.create(first_name: "Matthew", last_name: "Kay", nickname: "The Creator", img_url: "matthew.jpg")
 array << Player.create(first_name: "Shannon", last_name: "Nabors", nickname: "The Teacher", img_url: "shannon.jpg")
-array << Player.create(first_name: "Artem", last_name: "Mukraineski", nickname: "Mr. Evil", img_url: "Image from iOS (3).jpg")
+array << Player.create(first_name: "Artem", last_name: "Mukraineski", nickname: "Mr. Evil", img_url: "artem.jpg")
 array << Player.create(first_name: "Andrea", last_name: "Williams", nickname: "The Spooker", img_url: "a.jpg")
 array << Player.create(first_name: "Chinenye", last_name: "Anikwe", nickname: "Chine", img_url: "chine.png")
 array << Player.create(first_name: "James", last_name: "Clement", nickname: "Gains", img_url: "james.png")
@@ -47,7 +47,7 @@ end
       first_name: Faker::Name.unique.first_name,
       last_name: Faker::Name.unique.last_name,
       nickname: Faker::Name.unique.middle_name,
-      img_url: Faker::Company.unique.buzzword)
+      img_url: "player.png")
     end
 
 
