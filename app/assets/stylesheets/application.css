@@ -17,10 +17,10 @@
  .menu-nav-bar {
    display: flex;
     flex-direction: row;
-    list-style-type: none;
     background-color: black;
     margin-top: 0;
-    align: center;
+    justify-content: space-around;
+    list-style-type: none;
  }
 
  li.menu-item {
@@ -48,10 +48,16 @@
    margin: 20px;
    padding: 30px;
    background-color: rgba(255, 255, 255, 0.5);
+   border-radius: 10px;
   }
 
   input {
     border-radius: 5px;
+  }
+
+  h1, h2, h3, h4 {
+    margin: 0px, 20px;
+    color: white;
   }
 
   table {
@@ -64,3 +70,35 @@
     text-align: center;
     padding: 5px;
   }
+
+  div.box ul {
+    list-style-type: none;
+  }
+
+  div.box h1, div.box h2, div.box h3, div.box h4 {
+    color: black;
+  }
+
+  div.box ul li.large-selection {
+    display: inline-block;
+    margin: 40px;
+    width: 70px;
+    height: 70px;
+  }
+
+.ui.checkbox {
+   /* -webkit-appearance:none; */
+   width: 20px;
+   height: 20px;
+   background:white;
+   border-radius:5px;
+   border:2px solid #555;
+}
+.ui.checkbox:checked {
+   background: black;
+}
+
+#error_explanation {
+  display: flex;
+  flex-direction: column;
+}

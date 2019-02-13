@@ -12,22 +12,27 @@
 <% end %>
 
 <div class="box">
-  <%=form_for @tournament do |tour| %>
-  <%= tour.label :name %>
-  <%= tour.text_field :name %>
-  <br>
-  <%= tour.label "Number of players" %>
-  <%= tour.number_field :num_players %>
+  <%=form_for @tournament, :html => {:class => "ui form"} do |tour| %>
+  <div class="two fields">
+    <div class="field">
+      <%= tour.label :name %>
+      <%= tour.text_field :name %>
+    </div>
+    <div class="field">
+      <%= tour.label "Number of players" %>
+      <%= tour.number_field :num_players %>
+    </div>
+  </div>
 
   <ul>
     <% Player.active_players.each do |role| %>
-    <li>
-      <%= check_box_tag 'player_ids[]', role.id -%>
-      <%= h role.name -%>
+    <li class="large-selection">
+        <%= check_box_tag 'player_ids[]', role.id, false,  class: "ui checkbox" %>
+        <%= h role.name %>
     </li>
     <% end %>
   </ul>
-  <%= tour.submit %>
+  <%= tour.submit "Create Tournament", class: "ui inverted button" %>
 
   <% end %>
 </div>

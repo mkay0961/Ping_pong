@@ -5,7 +5,7 @@
 <% else %>
 <ul>
 <% @tournaments.each do |tour| %>
-  <li><%=link_to tour.name, tour %></li>
+  <li class="large-selection"><%=link_to tour.name, tour, class: "ui inverted button" %></li>
 <%end %>
 </ul>
 <% end %>
