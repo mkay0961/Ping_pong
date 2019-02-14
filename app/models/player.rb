@@ -42,36 +42,43 @@ class Player < ApplicationRecord
   end
 
   def game_win_percentage
-    games_played = self.games.count
-    games_won = 0
-    self.games.each do |game|
-      if game.winner == self
-        games_won+=1
-      end
+    games = self.games.select do |game|
+      game.status == "Completed"
     end
+    games_played = games.count
+    if games_played == 0
+      "No Stats"
+    else
+      games_won = 0
+      games.each do |game|
+        if game.winner == self
+          games_won+=1
+        end
+      end
 
-    percent = ( games_won.to_f/games_played)*100
-    return percent
+      percent = ( games_won.to_f/games_played)*100
+    return percent.to_s + "%"
+    end
   end
 
   def tour_win_percentage
-    tourn = []
-    self.games.each do |game|
-      if game.round.tournament.status == "Completed"
-        tourn << game.round.tournament
-      end
-
+    tourn = self.games.select do |game|
+      game.round.tournament.status == "Completed"
     end
     tour_played = tourn.uniq.count
-    tour_won = 0
-    tourn.uniq.each do |tour|
-      if tour.winner_id == self.id
-        tour_won+=1
+    if tour_played == 0
+      "No Stats"
+    else
+      tour_won = 0
+      tourn.uniq.each do |tour|
+        if tour.winner_id == self.id
+          tour_won+=1
+        end
       end
-    end
 
-    percent = ( tour_won.to_f/tour_played)*100
-    return percent
+      percent = ( tour_won.to_f/tour_played)*100
+      return percent.to_s + "%"
+    end
   end
 
   def default_image

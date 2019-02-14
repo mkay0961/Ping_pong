@@ -21,7 +21,11 @@
       <tbody>
         <% @player.games.each do |game| %>
         <tr>
-          <td> <%= link_to game.round.tournament.name, game.round.tournament %> </td>
+          <% if game.round.tournament.user.id != session["user_id"] %>
+            <td><%= game.round.tournament.name %></td>
+          <% else %>
+            <td> <%= link_to game.round.tournament.name, game.round.tournament %> </td>
+          <% end %>
           <td> <%= game.round.num %> </td>
           <% if @player.win?(game) == "won" %>
           <td class="positive"><i class="icon checkmark"></i> <%= @player.win?(game) %> </td>
@@ -47,8 +51,8 @@
         </tr>
       </thead>
       <tbody>
-        <td><%= @player.game_win_percentage.round(2) %>%</td>
-        <td><%= @player.tour_win_percentage.round(2) %>%</td>
+        <td><%= @player.game_win_percentage %></td>
+        <td><%= @player.tour_win_percentage %></td>
         <td><%= @player.points %></td>
       </tbody>
 

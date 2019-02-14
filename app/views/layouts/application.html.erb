@@ -20,9 +20,9 @@
         <li class="menu-item"><%= link_to image_tag("logo.png", style: "width:100px; height:38px;", border: 0), root_path %></li>
         <li class="menu-item"><%= link_to "  Create a Tournament  ", new_tournament_path, class: "nav-item" %></li>
         <li class="menu-item"><%= link_to "  Create a Player  ", new_player_path, class: "nav-item" %></li>
-        <li class="menu-item"><%= link_to "  View Tournaments  ", tournaments_path, class: "nav-item" %></li>
-        <li class="menu-item"><%= link_to "  View Players  ", players_path, class: "nav-item" %></li>
-        <li class="menu-item"><%= link_to "  View Ranks  ", ranks_path, class: "nav-item" %></li>
+        <li class="menu-item"><%= link_to "  Your Tournaments  ", tournaments_path, class: "nav-item" %></li>
+        <li class="menu-item"><%= link_to "  All Players  ", players_path, class: "nav-item" %></li>
+        <li class="menu-item"><%= link_to "  Player Ranks  ", ranks_path, class: "nav-item" %></li>
 
         <li class="menu-item">
           <% if session[:user_id] %>
