@@ -2,8 +2,10 @@ Player.destroy_all
 Game.destroy_all
 Round.destroy_all
 Tournament.destroy_all
+User.destroy_all
 
-User.create(username: "mkay", password: "hello")
+m = User.create(username: "mkay", password: "hello")
+a = User.create(username: "a", password: "1")
 
 array = []
 
@@ -26,7 +28,7 @@ array << Player.create(first_name: "Anthony", last_name: "Gregg", nickname: "The
 
 array = array.shuffle
 
-cohort = Tournament.create(name: "cohort", num_players: array.size, status: "pending")
+cohort = Tournament.create(name: "cohort", num_players: array.size, status: "pending", user: m)
 round_1= Round.create(num: 1, tournament_id: cohort.id, status: "pending")
 
 games = array.size / 2
@@ -46,7 +48,7 @@ end
     array1 << Player.create(
       first_name: Faker::Name.unique.first_name,
       last_name: Faker::Name.unique.last_name,
-      nickname: Faker::Name.unique.middle_name,
+      nickname: Faker::Cannabis.unique.strain,
       img_url: "player.png")
     end
 
@@ -57,13 +59,11 @@ end
 
   array1 = array1.shuffle
 
-  cohort1 = Tournament.create(name: "cohort" +i.to_s, num_players: array1.size, status: "pending")
+  cohort1 = Tournament.create(name: "cohort" +i.to_s, num_players: array1.size, status: "pending", user: a)
   round_11= Round.create(num: 1, tournament_id: cohort1.id, status: "pending")
 
   games1 = array1.size / 2
-
   games1.times do
-
     Game.create(status: "pending", p1: array1.shift, p2: array1.shift, round_id: round_11.id)
 
   end

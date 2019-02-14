@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_142558) do
     t.integer "num_players", default: 0
     t.string "status"
     t.integer "winner_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

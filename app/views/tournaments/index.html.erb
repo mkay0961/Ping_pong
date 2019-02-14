@@ -4,7 +4,7 @@
   There are no tournaments, you can Create one at the top left!
 <% else %>
 <ul>
-<% @tournaments.each do |tour| %>
+<% @user.tournaments.each do |tour| %>
   <li class="large-selection"><%=link_to tour.name, tour, class: "ui inverted button" %></li>
 <%end %>
 </ul>

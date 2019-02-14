@@ -10,6 +10,7 @@ class TournamentsController < ApplicationController
 
     def index
       @tournaments = Tournament.all
+      @user = User.find(session["user_id"])
     end
 
     def new
