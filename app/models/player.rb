@@ -37,9 +37,9 @@ class Player < ApplicationRecord
 
   def self.ranks
     ranks = []
-    ranks = Player.all.sort_by {|player| player.points}
+    ranks = Player.active_players.sort_by {|player| player.points}
     return ranks.reverse
-    end
+  end
 
   def game_win_percentage
     games_played = self.games.count
