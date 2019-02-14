@@ -5,7 +5,7 @@
 <div class="box">
   <h3>Instructions</h3>
   <p>Click on an underlined name to select that player as the winner for the game that they are in.
-    Once a winner has been selected, that game's results can't be changed.</p>
+    Once a winner has been selected, that game's results can't be changed. Click on a player's icon to view their page.</p>
 </div>
 
 
@@ -46,21 +46,21 @@
           <% if game.winner.nil? %>
 
 
-            <li class="team-item"><%= link_to "#{game.p1.nickname} (#{game.p1.name})", game_path(game, game.p1), :method=> :patch %> </li>
-            <li class="team-item"><%= link_to "#{game.p2.nickname} (#{game.p2.name})", game_path(game, game.p2), :method=> :patch %> </li>
+            <li class="team-item"><%= link_to image_tag(game.p1.img_url, width: 30, height: 30, class: "person", alt: game.p1.name), game.p1  %>  <%= link_to "#{game.p1.nickname} (#{game.p1.name})", game_path(game, game.p1), :method=> :patch %> </li>
+            <li class="team-item"><%= link_to image_tag(game.p2.img_url, width: 30, height: 30, class: "person", alt: game.p2.name), game.p2  %>  <%= link_to "#{game.p2.nickname} (#{game.p2.name})", game_path(game, game.p2), :method=> :patch %> </li>
 
           <% else %>
 
             <% if game.p1 == game.winner %>
-              <li class="team-item" id = "winner" ><%= game.p1.nickname %> (<%= game.p1.name %>)</li>
+              <li class="team-item" id = "winner" ><%= link_to image_tag(game.p1.img_url, width: 30, height: 30, class: "person", alt: game.p1.name), game.p1  %>  <%= game.p1.nickname %> (<%= game.p1.name %>)</li>
             <% else %>
-              <li class="team-item" ><%= game.p1.nickname %> (<%= game.p1.name %>)</li>
+              <li class="team-item" ><%= link_to image_tag(game.p1.img_url, width: 30, height: 30, class: "person", alt: game.p1.name), game.p1  %>  <%= game.p1.nickname %> (<%= game.p1.name %>)</li>
             <% end %>
 
             <% if game.p2 == game.winner %>
-              <li class="team-item" id = "winner" ><%= game.p2.nickname %> (<%= game.p2.name %>)</li>
+              <li class="team-item" id = "winner" ><%= link_to image_tag(game.p2.img_url, width: 30, height: 30, class: "person", alt: game.p2.name), game.p2  %>  <%= game.p2.nickname %> (<%= game.p2.name %>)</li>
             <% else %>
-              <li class="team-item" ><%= game.p2.nickname %> (<%= game.p2.name %>)</li>
+              <li class="team-item" ><%= link_to image_tag(game.p2.img_url, width: 30, height: 30, class: "person", alt: game.p2.name), game.p2  %>  <%= game.p2.nickname %> (<%= game.p2.name %>)</li>
             <% end %>
 
           <% end %>

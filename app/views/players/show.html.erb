@@ -1,5 +1,8 @@
-<h1><%= @player.nickname %></h1>
-<h3><%= @player.name %></h3>
+<ul>
+  <li class="large-selection"><%= image_tag(@player.img_url, width: 60, height: 60, class: "person")  %></li>
+  <li class="large-selection"><h1><%= @player.nickname %></h1>
+    <h3><%= @player.name %></h3></li>
+</ul>
 
 <div class="box">
     <% if !@player.games.empty? %>

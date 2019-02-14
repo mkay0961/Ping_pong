@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  a, a:hover, a:visited {
    color: black;
    text-decoration: underline;
@@ -45,13 +46,14 @@
    background-image: url("http://www.portoalegre.travel/upload/b/134/1340763_ping-pong-wallpaper.jpg");
    background-attachment: fixed;
    background-size: cover;
-   font-family: monaco, Consolas, "Lucida Console", monospace;
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 1.5em;
  }
 
  .box {
    margin: 20px;
    padding: 30px;
-   background-color: rgba(255, 255, 255, 0.5);
+   background-color: rgba(255, 255, 255, 0.75);
    border-radius: 10px;
   }
 
@@ -71,6 +73,10 @@
 
   div.box h1, div.box h2, div.box h3, div.box h4 {
     color: black;
+  }
+
+  li.large-selection {
+    display: inline-block;
   }
 
   div.box ul li.large-selection {
@@ -117,4 +123,7 @@ div.box div.tables {
 
 .ui.celled.table th {
   text-align: center;
+}
+.person {
+  border-radius: 10px;
 }
