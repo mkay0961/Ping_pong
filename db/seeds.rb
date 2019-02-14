@@ -50,7 +50,10 @@ end
       img_url: "player.png")
     end
 
-
+  array1.each do |player|
+    player.default_image
+    player.save
+  end
 
   array1 = array1.shuffle
 

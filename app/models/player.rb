@@ -72,5 +72,11 @@ class Player < ApplicationRecord
     return percent
   end
 
+  def default_image
+    arr = ["cat1.jpg", "cat2.jpg", "cat3.jpg", "cat4.jpg", "cat7.jpeg", "dog1.png", "dog2.png", "dog3.jpg",
+            "dog4.jpg", "dog6.jpg", "horse.jpg", "lizard.jpg", "monkey.jpg", "squirrel.jpg"]
+    self.img_url = arr.sample
+  end
+
 
 end

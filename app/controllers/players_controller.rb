@@ -21,7 +21,7 @@ class PlayersController < ApplicationController
       @player.active = true
       @player.save
       if @player.img_url.empty? || asset_exists?(@player.img_url) == false
-        @player.img_url = "player.png"
+        @player.default_image
         @player.save
       end
       redirect_to player_path(@player)
