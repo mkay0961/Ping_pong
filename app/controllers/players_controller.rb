@@ -1,3 +1,4 @@
+require 'open-uri'
 class PlayersController < ApplicationController
 
   before_action :find_player, only: [:show, :edit, :update, :destroy]
@@ -76,11 +77,19 @@ class PlayersController < ApplicationController
 
   def asset_exists?(path)
     begin
-      pathname = Rails.application.assets.resolve(path)
+      pathname = Rails.application.assets.resolve(path) || image?(path)
       return !!pathname # double-bang turns String into boolean
-    rescue Sprockets::FileNotFound
-      return false
+    # rescue Sprockets::FileNotFound
+    #   return false
     end
   end
 
+  def image?(uri)
+    begin
+      str = open(uri)
+      return str.content_type.start_with?("image")
+    rescue
+      return false
+    end
+  end
 end
