@@ -22,6 +22,7 @@ class TournamentsController < ApplicationController
       @num_players1 = [2,4,8,16,32,64,128]
       check_players
       params[:tournament][:status] = "pending"
+      params[:tournament][:user_id] = @user.id
       players = []
 
       if Tournament.player_numbers == true
@@ -58,7 +59,7 @@ class TournamentsController < ApplicationController
     private
 
     def tournament_params
-      return params.require(:tournament).permit(:name, :num_players, :status)
+      return params.require(:tournament).permit(:name, :num_players, :status, :user_id)
     end
 
     def get_tournaments

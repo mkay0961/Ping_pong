@@ -7,14 +7,16 @@
   <table class="ui celled table">
     <tr>
       <th>Rank</th>
-      <th>Person</th>
+      <th>Nickname</th>
+      <th>Full Name</th>
       <th>Points</th>
     </tr>
-    <% @ranks.each_with_index do |rank, i| %>
+    <% @ranks.each_with_index do |player, i| %>
     <tr>
       <td> <%= i +1  %> </td>
-      <td> <%= link_to rank.name, rank %> </td>
-      <td> <%= rank.points %> </td>
+      <td><%= link_to player.nickname, player %></td>
+      <td> <%= player.name %> </td>
+      <td> <%= player.points %> </td>
 
     </tr>
 
