@@ -65,7 +65,9 @@
 
 
 </div>
+<%= link_to "Edit player", edit_player_path ,  class: "circular ui inverted button deletion" %>
 
-<%= form_tag @tournament, method: "delete" do %>
+
+<%= form_tag @player, method: "delete" do %>
   <%= submit_tag "Delete Player", class: "circular ui inverted button deletion" %>
 <% end %>
