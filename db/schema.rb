@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_02_12_142558) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: :cascade do |t|
     t.integer "winner_id"
     t.integer "loser_id"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_142558) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "num"
-    t.integer "tournament_id"
+    t.bigint "tournament_id"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,4 +63,5 @@ ActiveRecord::Schema.define(version: 2019_02_12_142558) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "rounds", "tournaments"
 end
