@@ -1,0 +1,2 @@
+class Daph < ApplicationRecord
+end
