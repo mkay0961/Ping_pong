@@ -5,10 +5,12 @@ class WelcomeController < ApplicationController
   end
 
   def root
-    if !current_user.nil?
-      redirect_to home_path
-    else
-      redirect_to login_path
-    end
+    redirect_to login_path
+
+    # if !current_user.nil?
+    #   redirect_to home_path
+    # else
+    #   redirect_to login_path
+    # end
   end
 end
